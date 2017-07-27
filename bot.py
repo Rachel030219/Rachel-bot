@@ -70,10 +70,6 @@ def send_query(message):
 def send_off_topic(message):
     if message.reply_to_message is not None:
         bot.reply_to(message.reply_to_message, "您所讨论的内容可能已超出本群讨论范围，或者您违反了本群的相关规定。请至其它群组寻求帮助并进行讨论。")
-        chat_admins = bot.get_chat_administrators(message.chat.id)
-        chat_admin_users = []
-        for chat_member in chat_admins:
-            chat_admin_users.append(chat_member.user)
     else:
         bot.send_message(message.chat.id, "您所讨论的内容可能已超出本群讨论范围，或者您违反了本群的相关规定。请至其它群组寻求帮助并进行讨论。")
 
